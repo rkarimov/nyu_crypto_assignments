@@ -1,6 +1,8 @@
 import typing
 import secrets
 import random
+import struct
+
 
 
 def example(data: bytes) -> bytes:
@@ -55,6 +57,33 @@ def problem2(n: int) -> bytes:
 
 
 def problem3(data: bytes) -> bytes:
+    demo = struct.unpack(data)
+    print(demo)
+    #info = [data[i:i + 2] for i in range(0, len(data), 2)]
+    #for x in info:
+    #    new = int.from_bytes(x,"little")*2 % 256
+    #    something = [bytes([new])]
+    #    #something = int.to_bytes(2, byteorder ="little")
+    #    print(something)
+
+
+
+
+
+#    something= [(int.from_bytes(data,"little")*2 % 256) for x in info] 
+   # print (x)
+  #  print(something)
+    #print(something)
+       # print(info)
+    #converted = int.from_bytes(data, "little")
+    #print(converted)
+   # print(data.decode())
+    #for x in data.decode("utf-8")
+    #    print(x)
+
+    #print(int.from_bytes(data,"little"))
+
+ 
     """
     Manipulate given data bytes where each byte is multiplied * 2 % 256
 
@@ -66,6 +95,7 @@ def problem3(data: bytes) -> bytes:
     >>> problem3(b'hello')
     b'\xd0\xca\xd8\xd8\xde'
     """
+problem3(b'r\x93A\xad\xa9t\x0f\x9c\x9b\xa8\x0eqy*\x8f\x08&\xdb\xe2\xbb\x16a\xb3\x82A\xfa\xa5\xee')
 
 
 
