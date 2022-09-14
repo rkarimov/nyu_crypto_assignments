@@ -24,7 +24,7 @@ def problem1(n: int) -> typing.List[int]:
     while n != 0:
         List.append(secrets.choice(range(0,256)))
         n -= 1
-    print(List)
+    return List
 
     """
     Generate a list of `n` random numbers in range [0,256)
@@ -36,10 +36,10 @@ def problem1(n: int) -> typing.List[int]:
     > problem1(5)
     [140, 7, 218, 46, 104]
     """
-problem1(5)
+#problem1(14)
 
 def problem2(n: int) -> bytes:
-    print(secrets.token_bytes(n))
+    return secrets.token_bytes(n)
     """
     Generate random `n` bytes
 
@@ -51,7 +51,7 @@ def problem2(n: int) -> bytes:
     b'\x18s\x0b8B'
     """
 
-problem2(5)
+#problem2(5)
 
 
 def problem3(data: bytes) -> bytes:
@@ -66,6 +66,7 @@ def problem3(data: bytes) -> bytes:
     >>> problem3(b'hello')
     b'\xd0\xca\xd8\xd8\xde'
     """
+
 
 
 def problem4(data: typing.List[bytes]) -> bytes:
