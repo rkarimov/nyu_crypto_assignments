@@ -2,6 +2,7 @@ import typing
 import secrets
 import random
 import struct
+import functools
 
 
 
@@ -13,10 +14,10 @@ def example(data: bytes) -> bytes:
     b'HELLO'
     >>> example(b'hello').decode()
     'HELLO'
-    >>> example('привіт'.encode())
+    >>> example('Ð¿Ñ€Ð¸Ð²Ñ–Ñ‚'.encode())
     b'\xd0\x9f\xd0\xa0\xd0\x98\xd0\x92\xd0\x86\xd0\xa2'
-    >>> example('привіт'.encode()).decode()
-    'ПРИВІТ'
+    >>> example('Ð¿Ñ€Ð¸Ð²Ñ–Ñ‚'.encode()).decode()
+    'ÐŸÐ Ð˜Ð’Ð†Ð¢'
     """
     return data.decode("utf-8").upper().encode("utf-8")
 
@@ -76,6 +77,8 @@ def problem3(data: bytes) -> bytes:
     """
 
 def problem4(data: typing.List[bytes]) -> bytes:
+    return bytes(functools.reduce(lambda a, b: a ^ b, i) for i in zip(*data))
+    ##used resource code provided by miroslav: https://github.com/cs-gy6903/resources#xor-bytes
     """
     XOR all given bytes and output resulting XORed bytes
 
@@ -91,6 +94,9 @@ def problem4(data: typing.List[bytes]) -> bytes:
 
 
 def problem5(data: str) -> bytes:
+    return bytes.fromhex(data)
+    ##used resource code provided by miroslav: https://github.com/cs-gy6903/resources#convert-hex-encoded-string-to-bytes
+
     """
     Decode given hex-encoded string to bytes
 
@@ -100,6 +106,8 @@ def problem5(data: str) -> bytes:
 
 
 def problem6(data: bytes) -> str:
+    return data.hex()
+    
     """
     Encode given bytes to hex-encoded string
 
